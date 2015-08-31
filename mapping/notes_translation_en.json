@@ -1,0 +1,50 @@
+{
+  "0": {
+    "note": "C",
+    "type": null
+  },
+  "1": {
+    "note": "C",
+    "type": "#"
+  },
+  "2": {
+    "note": "D",
+    "type": null
+  },
+  "3": {
+    "note": "D",
+    "type": "#"
+  },
+  "4": {
+    "note": "E",
+    "type": null
+  },
+  "5": {
+    "note": "F",
+    "type": null
+  },
+  "6": {
+    "note": "F",
+    "type": "#"
+  },
+  "7": {
+    "note": "G",
+    "type": null
+  },
+  "8": {
+    "note": "G",
+    "type": "#"
+  },
+  "9": {
+    "note": "A",
+    "type": null
+  },
+  "10": {
+    "note": "A",
+    "type": "#"
+  },
+  "11": {
+    "note": "B",
+    "type": null
+  }
+}

@@ -1,0 +1,100 @@
+$note-width: 31;
+$note-height: $note-width;
+
+$top: -31;
+$note-offset: 17;
+
+.sheet-wrapper {
+  font-size: 0;
+  position: relative;
+
+  .lines {
+    position: relative;
+    margin: 39px 0 0 138px;
+    padding: 0;
+    background: url(/assets/img/lines.png) repeat-x;
+    height: 350px;
+    width: 900px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      background: url(/assets/img/clef.png) no-repeat;
+      height: 389px;
+      width: 138px;
+      position: relative;
+      top: -39px;
+      left: -138px;
+    }
+  }
+
+  #note {
+    &.current-note {
+      position: absolute;
+      left: 300px;
+    }
+
+    &.correct.sharp:after {
+      background: url('/assets/img/sharp-green.png');
+    }
+
+
+    &.playing.sharp:after {
+      background: url('/assets/img/sharp-red.png');
+    }
+
+    &.round {
+      width: #{$note-width}px;
+      height: #{$note-height}px;
+      background: #000;
+      border-radius: #{$note-width}px;
+    }
+
+    &.sharp:after {
+      content: '';
+      background: url('/assets/img/sharp.png');
+      width: 30px;
+      height: 100px;
+
+      top: -#{$note-height};
+      left: -#{$note-width};
+
+      position: absolute;
+    }
+
+    &.extra-line:before {
+      content: '';
+      height: 3px;
+      width: $note-width * 2;
+      position: absolute;
+      top: 16px;
+      left: -16px;
+      background-color: inherit;
+    }
+
+    $top: -31;
+    $range-list: 6 5 4 3 2;
+      $note-list: g f e d c b a;
+
+    @each $range in $range-list {
+      @each $note in $note-list {
+        &.#{$note}#{$range} {
+          top: #{$top}px;
+        }
+
+        $top: $top + $note-offset;
+
+        @if $note == 'c' {
+          @if $range == 5 {
+            $top: $top + 7;
+          }
+        }
+
+        // @if $note == c {
+        //   $range: $range - 1;
+        // }
+      }
+    }
+  }
+}
+
