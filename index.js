@@ -16,9 +16,7 @@ var dataHandler = function (delta, data) {
   var notePressed = notes[ noteNumber % NUMBER_OF_NOTES ];
 
   var keyInfo = {
-    note: notePressed.note,
-    type: notePressed.type,
-    range: Math.floor((noteNumber + C_OFFSET) / NUMBER_OF_NOTES)
+    note: [notePressed.note, notePressed.type, Math . floor((noteNumber + C_OFFSET) / NUMBER_OF_NOTES) ]. join('')
   };
 
   if (keyIntensity > 0) {
@@ -27,6 +25,7 @@ var dataHandler = function (delta, data) {
   } else {
     io.emit('note unpressed', keyInfo);
   }
+
   console.log(keyInfo);
 };
 
@@ -45,9 +44,9 @@ io.on('connection', function(socket){
   console.log('Socket connected');
 });
 
-// setTimeout(function() {
-// dataHandler(10, [121, 53, 42]);
-// }, 10000);
+setInterval(function() {
+  dataHandler(10, [121, 53, 42]);
+}, 1000);
 
 
 io.listen(3000);
