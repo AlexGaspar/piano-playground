@@ -1,0 +1,25 @@
+{
+  "name": "piano",
+  "version": "1.0.0",
+  "description": "Currently it will train you with music sheet reading. It will render a note randomly, wait for input from your piano, if you played the correct note, another one will be rendered, otherwise, keep trying.",
+  "main": "index.js",
+  "dependencies": {
+    "midi": "^0.9.5",
+    "socket.io": "^1.7.4",
+    "socketio": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexGaspar/piano-playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexGaspar/piano-playground/issues"
+  },
+  "homepage": "https://github.com/AlexGaspar/piano-playground#readme"
+}
