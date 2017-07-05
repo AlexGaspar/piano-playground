@@ -108,9 +108,9 @@ function Sheet (options) {
 
   this.drawSystem = (notes) => {
     let score = vf.EasyScore();
-    let notesChunck = _.chunk(notes, 4);
+    let notesChunk = _.chunk(notes, 4);
 
-    notesChunck.forEach((notesGroup, index) => {
+    notesChunk.forEach((notesGroup, index) => {
       let sys = this.makeSystem(250).addStave({
         voices: [
           score.voice(notesGroup).setStrict(false)
@@ -120,7 +120,7 @@ function Sheet (options) {
       // Start of line
       if (index == 0 || index % 4 == 0) sys.addClef('treble').addTimeSignature('4/4');
       // End of line
-      if (index != 0 && (index + 1) % 4 == 0 && index != (notesChunck.length - 1)) this.vfNewLine();
+      if (index != 0 && (index + 1) % 4 == 0 && index != (notesChunk.length - 1)) this.vfNewLine();
     });
 
     this.vfNewLine();
