@@ -3,6 +3,7 @@ var notes = require('./mapping/notes_translation_en.json');
 
 var NUMBER_OF_NOTES = 12;
 var C_OFFSET = 3;
+var OFFSET = 1;
 
 var input = new midi.input();
 
@@ -16,7 +17,7 @@ var dataHandler = function (delta, data) {
   var notePressed = notes[ noteNumber % NUMBER_OF_NOTES ];
 
   var keyInfo = {
-    note: [notePressed.note, notePressed.type, Math . floor((noteNumber + C_OFFSET) / NUMBER_OF_NOTES) ]. join('')
+    note: [notePressed.note, notePressed.type, Math.floor(noteNumber / NUMBER_OF_NOTES) + 1].join('')
   };
 
   if (keyIntensity > 0) {
@@ -44,9 +45,9 @@ io.on('connection', function(socket){
   console.log('Socket connected');
 });
 
-setInterval(function() {
+/*setInterval(function() {
   dataHandler(10, [121, 53, 42]);
-}, 1000);
+}, 1000);*/
 
 
 io.listen(3000);
